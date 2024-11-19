@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "interregular";
+}
+
+@font-face {
+  font-family: "interregular";
+  src: url("../app/fonts/inter-regular-webfont.woff2") format("woff2"),
+    url("../app/fonts/inter-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.background {
+  padding: 6px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.default {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hide scrollbar for all browsers */
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit-based browsers (Chrome, Safari) */
+}
+
+* {
+  scrollbar-width: none; /* Hides the scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides the scrollbar in Internet Explorer 10+ */
+}
+
+/* Custom styles for the slider */
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 4px; /* Adjust height if needed */
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff calc((var(--value) - 1) / (32 - 1) * 100%),
+    #262626 calc((var(--value) - 1) / (32 - 1) * 100%),
+    #262626 100%
+  );
+  outline: none; /* Remove default outline */
+  border-radius: 5px; /* Optional: for rounded corners on the track */
+}
+
+/* Update the slider thumb */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 13px; /* Adjust thumb size */
+  height: 13px;
+  background-color: #fff; /* Thumb color */
+  border-radius: 50%; /* Make thumb circular */
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.loader-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 8px solid #ffffff; /* Light border */
+  border-top: 8px solid #000; /* Accent color */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Animation for spinning */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
